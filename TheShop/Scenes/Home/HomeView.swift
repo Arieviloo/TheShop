@@ -45,5 +45,4 @@ class HomeView: UIView {
 			lineView.heightAnchor.constraint(equalToConstant: 2)
 		])
 	}
-	
 }
