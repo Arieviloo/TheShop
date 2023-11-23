@@ -16,6 +16,17 @@ class HomeView: UIView {
 		return $0
 	}(UIView())
 	
+	lazy var productCollectionView: UICollectionView = {
+		let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
+		layout.scrollDirection = .vertical
+		$0.translatesAutoresizingMaskIntoConstraints = false
+		$0.backgroundColor = .none
+		$0.setCollectionViewLayout(layout, animated: true)
+		$0.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: HomeCollectionViewCell.identifier)
+		
+		return $0
+	}(UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout.init()))
+	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		configAddView()
@@ -28,9 +39,15 @@ class HomeView: UIView {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	func configDelegateCollection(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource) {
+		self.productCollectionView.delegate = delegate
+		self.productCollectionView.dataSource = dataSource
+	}
+	
 	private func configAddView() {
 		addSubview(titleLabel)
 		addSubview(lineView)
+		addSubview(productCollectionView)
 	}
 	
 	private func configConstraints() {
@@ -42,7 +59,12 @@ class HomeView: UIView {
 			lineView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
 			lineView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
 			lineView.widthAnchor.constraint(equalToConstant: 120),
-			lineView.heightAnchor.constraint(equalToConstant: 2)
+			lineView.heightAnchor.constraint(equalToConstant: 2),
+			
+			productCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+			productCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+			productCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+			productCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
 		])
 	}
 }

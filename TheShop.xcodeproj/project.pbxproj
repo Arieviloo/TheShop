@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E2E3EAF82B0F968F00C70043 /* DataShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E3EAF72B0F968F00C70043 /* DataShop.swift */; };
 		E2E3EAFB2B0F98AC00C70043 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E3EAFA2B0F98AC00C70043 /* Products.swift */; };
+		E2E3EAFD2B0FBA1E00C70043 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E3EAFC2B0FBA1E00C70043 /* HomeCollectionViewCell.swift */; };
 		E2EC8F4C2B0EACE700A453DE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EC8F4B2B0EACE700A453DE /* HomeView.swift */; };
 		E2EC8F4E2B0EAEEF00A453DE /* Bungee-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2EC8F4D2B0EAEEF00A453DE /* Bungee-Regular.ttf */; };
 		E2EC8F512B0EB01800A453DE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2EC8F502B0EB01800A453DE /* Localizable.strings */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		E2E3EAF72B0F968F00C70043 /* DataShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataShop.swift; sourceTree = "<group>"; };
 		E2E3EAFA2B0F98AC00C70043 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		E2E3EAFC2B0FBA1E00C70043 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		E2EC8F4B2B0EACE700A453DE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E2EC8F4D2B0EAEEF00A453DE /* Bungee-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bungee-Regular.ttf"; sourceTree = "<group>"; };
 		E2EC8F502B0EB01800A453DE /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			children = (
 				E2FC35602B0EA6DE001DB06A /* HomeViewController.swift */,
 				E2EC8F4B2B0EACE700A453DE /* HomeView.swift */,
+				E2E3EAFC2B0FBA1E00C70043 /* HomeCollectionViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				E2FC35612B0EA6DE001DB06A /* HomeViewController.swift in Sources */,
 				E2FC355D2B0EA6DE001DB06A /* AppDelegate.swift in Sources */,
 				E2EC8F5C2B0EB5E100A453DE /* FavoriteViewController.swift in Sources */,
+				E2E3EAFD2B0FBA1E00C70043 /* HomeCollectionViewCell.swift in Sources */,
 				E2EC8F592B0EB3CF00A453DE /* MainViewController.swift in Sources */,
 				E2E3EAF82B0F968F00C70043 /* DataShop.swift in Sources */,
 				E2EC8F542B0EB05700A453DE /* String+Localizable.swift in Sources */,
