@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E2E3EAF82B0F968F00C70043 /* DataShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E3EAF72B0F968F00C70043 /* DataShop.swift */; };
+		E2E3EAFB2B0F98AC00C70043 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E3EAFA2B0F98AC00C70043 /* Products.swift */; };
 		E2EC8F4C2B0EACE700A453DE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EC8F4B2B0EACE700A453DE /* HomeView.swift */; };
 		E2EC8F4E2B0EAEEF00A453DE /* Bungee-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2EC8F4D2B0EAEEF00A453DE /* Bungee-Regular.ttf */; };
 		E2EC8F512B0EB01800A453DE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2EC8F502B0EB01800A453DE /* Localizable.strings */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E2E3EAF72B0F968F00C70043 /* DataShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataShop.swift; sourceTree = "<group>"; };
+		E2E3EAFA2B0F98AC00C70043 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		E2EC8F4B2B0EACE700A453DE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E2EC8F4D2B0EAEEF00A453DE /* Bungee-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bungee-Regular.ttf"; sourceTree = "<group>"; };
 		E2EC8F502B0EB01800A453DE /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -47,6 +51,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E2E3EAF62B0F967C00C70043 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E2E3EAF72B0F968F00C70043 /* DataShop.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		E2E3EAF92B0F989300C70043 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E2E3EAFA2B0F98AC00C70043 /* Products.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E2EC8F4F2B0EAFF900A453DE /* LocalizableStrings */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,8 +121,10 @@
 			children = (
 				E2FC35702B0EA7FB001DB06A /* Application */,
 				E2EC8F522B0EB04100A453DE /* Extension */,
+				E2E3EAF92B0F989300C70043 /* Model */,
 				E2FC35712B0EA8AC001DB06A /* Scenes */,
 				E2FC35732B0EA8D5001DB06A /* Resource */,
+				E2E3EAF62B0F967C00C70043 /* Service */,
 				E2FC356A2B0EA6DF001DB06A /* Info.plist */,
 			);
 			path = TheShop;
@@ -218,11 +240,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2E3EAFB2B0F98AC00C70043 /* Products.swift in Sources */,
 				E2EC8F4C2B0EACE700A453DE /* HomeView.swift in Sources */,
 				E2FC35612B0EA6DE001DB06A /* HomeViewController.swift in Sources */,
 				E2FC355D2B0EA6DE001DB06A /* AppDelegate.swift in Sources */,
 				E2EC8F5C2B0EB5E100A453DE /* FavoriteViewController.swift in Sources */,
 				E2EC8F592B0EB3CF00A453DE /* MainViewController.swift in Sources */,
+				E2E3EAF82B0F968F00C70043 /* DataShop.swift in Sources */,
 				E2EC8F542B0EB05700A453DE /* String+Localizable.swift in Sources */,
 				E2EC8F562B0EB2D200A453DE /* UIColor+Extension.swift in Sources */,
 			);
