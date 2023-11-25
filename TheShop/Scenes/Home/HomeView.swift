@@ -23,6 +23,7 @@ class HomeView: UIView {
 		$0.backgroundColor = .none
 		$0.setCollectionViewLayout(layout, animated: true)
 		$0.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: HomeCollectionViewCell.identifier)
+		$0.register(HeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCollectionReusableView.identifier)
 		
 		return $0
 	}(UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout.init()))
@@ -45,23 +46,21 @@ class HomeView: UIView {
 	}
 	
 	private func configAddView() {
-		addSubview(titleLabel)
-		addSubview(lineView)
 		addSubview(productCollectionView)
 	}
 	
 	private func configConstraints() {
 		NSLayoutConstraint.activate([
-			titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
-			titleLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 12),
-			titleLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -12),
+//			titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
+//			titleLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 12),
+//			titleLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -12),
+//			
+//			lineView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
+//			lineView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+//			lineView.widthAnchor.constraint(equalToConstant: 120),
+//			lineView.heightAnchor.constraint(equalToConstant: 2),
 			
-			lineView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
-			lineView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-			lineView.widthAnchor.constraint(equalToConstant: 120),
-			lineView.heightAnchor.constraint(equalToConstant: 2),
-			
-			productCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+			productCollectionView.topAnchor.constraint(equalTo: topAnchor),
 			productCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
 			productCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
 			productCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)

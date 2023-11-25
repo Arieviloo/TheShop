@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E25E16322B1249D000D64F09 /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25E16312B1249D000D64F09 /* HeaderCollectionReusableView.swift */; };
 		E2E3EAF82B0F968F00C70043 /* DataShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E3EAF72B0F968F00C70043 /* DataShop.swift */; };
 		E2E3EAFB2B0F98AC00C70043 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E3EAFA2B0F98AC00C70043 /* Products.swift */; };
 		E2E3EAFD2B0FBA1E00C70043 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E3EAFC2B0FBA1E00C70043 /* HomeCollectionViewCell.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E25E16312B1249D000D64F09 /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		E2E3EAF72B0F968F00C70043 /* DataShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataShop.swift; sourceTree = "<group>"; };
 		E2E3EAFA2B0F98AC00C70043 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		E2E3EAFC2B0FBA1E00C70043 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			children = (
 				E2FC35602B0EA6DE001DB06A /* HomeViewController.swift */,
 				E2EC8F4B2B0EACE700A453DE /* HomeView.swift */,
+				E25E16312B1249D000D64F09 /* HeaderCollectionReusableView.swift */,
 				E2E3EAFC2B0FBA1E00C70043 /* HomeCollectionViewCell.swift */,
 			);
 			path = Home;
@@ -244,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2E3EAFB2B0F98AC00C70043 /* Products.swift in Sources */,
+				E25E16322B1249D000D64F09 /* HeaderCollectionReusableView.swift in Sources */,
 				E2EC8F4C2B0EACE700A453DE /* HomeView.swift in Sources */,
 				E2FC35612B0EA6DE001DB06A /* HomeViewController.swift in Sources */,
 				E2FC355D2B0EA6DE001DB06A /* AppDelegate.swift in Sources */,

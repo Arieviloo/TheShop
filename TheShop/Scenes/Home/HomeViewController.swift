@@ -5,7 +5,7 @@ class HomeViewController: UIViewController {
 	private var homeView: HomeView?
 	private let service = DataShop.shared
 	
-	let textqul = ["ja", "di", "swift", "kotlin", "ja", "di", "swift"]
+	let textqul = ["ja", "di", "swift", "kotlin", "ja", "di", "swift", "ja", "di", "swift", "kotlin", "ja", "di", "swift"]
 	override func loadView() {
 		homeView = HomeView()
 		view = homeView
@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
 		super.viewDidLoad()
 		
 		homeView?.configDelegateCollection(delegate: self, dataSource: self)
+		navigationController?.isNavigationBarHidden = true
 	}
 
 }
@@ -39,6 +40,23 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		let widthFrame = CGFloat((self.view.frame.width / 2 ) - 15)
 		return CGSize(width: widthFrame , height: 150)
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+		guard let header = collectionView.dequeueReusableSupplementaryView(
+			ofKind: UICollectionView.elementKindSectionHeader,
+			withReuseIdentifier: HeaderCollectionReusableView.identifier,
+			for: indexPath) as? HeaderCollectionReusableView else {
+			return UICollectionReusableView()
+		}
+		
+		header.configure()
+		
+		return header
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+		return CGSize(width: view.frame.width, height: 150)
 	}
 	
 }
