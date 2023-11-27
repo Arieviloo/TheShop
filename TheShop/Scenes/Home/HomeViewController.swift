@@ -4,6 +4,7 @@ class HomeViewController: UIViewController {
 	
 	private var homeView: HomeView?
 	private let service = DataShop.shared
+	private let productVC = ProductPresentViewController()
 	
 	let textqul = ["test text ", "di", "swift", "kotlin", "ja", "di", "swift", "ja", "di", "swift", "kotlin", "ja", "di", "swift"]
 	override func loadView() {
@@ -57,6 +58,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
 		return CGSize(width: view.frame.size.width, height: 100)
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		productVC.modalPresentationStyle = .fullScreen
+		present(productVC, animated: true)
 	}
 	
 }
