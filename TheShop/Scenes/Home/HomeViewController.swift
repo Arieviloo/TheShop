@@ -5,7 +5,7 @@ class HomeViewController: UIViewController {
 	private var homeView: HomeView?
 	private let service = DataShop.shared
 	
-	let textqul = ["ja", "di", "swift", "kotlin", "ja", "di", "swift", "ja", "di", "swift", "kotlin", "ja", "di", "swift"]
+	let textqul = ["test text ", "di", "swift", "kotlin", "ja", "di", "swift", "ja", "di", "swift", "kotlin", "ja", "di", "swift"]
 	override func loadView() {
 		homeView = HomeView()
 		view = homeView
@@ -39,7 +39,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		let widthFrame = CGFloat((self.view.frame.width / 2 ) - 15)
-		return CGSize(width: widthFrame , height: 150)
+		return CGSize(width: widthFrame , height: 250)
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -49,14 +49,14 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 			for: indexPath) as? HeaderCollectionReusableView else {
 			return UICollectionReusableView()
 		}
-		
+		header.viewWithTag(2)
 		header.configure()
 		
 		return header
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-		return CGSize(width: view.frame.width, height: 150)
+		return CGSize(width: view.frame.size.width, height: 100)
 	}
 	
 }
