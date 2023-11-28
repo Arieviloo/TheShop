@@ -29,7 +29,30 @@ class ProductPresentView: UIView {
 		$0.setImage(UIImage(systemName: "arrowshape.backward"), for: .normal)
 		$0.tintColor = UIColor.black
 		$0.backgroundColor = .green
+		$0.layer.borderWidth = 2
+		$0.layer.cornerRadius = 8
 		$0.addTarget(self, action: #selector(tappedBackButton), for: .touchUpInside)
+		return $0
+	}(UIButton(type: .system))
+	
+	lazy var nameProductLabel: UILabel = {
+		$0.translatesAutoresizingMaskIntoConstraints = false
+		$0.text = "text"
+		$0.numberOfLines = 0
+		return $0
+	}(UILabel())
+	
+	lazy var priceProductLabel: UILabel = {
+		$0.translatesAutoresizingMaskIntoConstraints = false
+		$0.text = "R$ 0,00"
+		$0.numberOfLines = 0
+		return $0
+	}(UILabel())
+	
+	lazy var addToCartButton: UIButton = {
+		$0.translatesAutoresizingMaskIntoConstraints = false
+		$0.backgroundColor = .green
+		$0.setTitle("Add to cart", for: .normal)
 		return $0
 	}(UIButton(type: .system))
 	
@@ -47,6 +70,9 @@ class ProductPresentView: UIView {
 	private func configAddView() {
 		addSubview(contentView)
 		contentView.addSubview(backButton)
+		addSubview(nameProductLabel)
+		addSubview(priceProductLabel)
+		addSubview(addToCartButton)
 	}
 	
 	@objc func tappedBackButton() {
@@ -63,6 +89,19 @@ class ProductPresentView: UIView {
 			backButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
 			backButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
 			backButton.widthAnchor.constraint(equalToConstant: 40),
+			backButton.heightAnchor.constraint(equalToConstant: 40),
+			
+			nameProductLabel.topAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 20),
+			nameProductLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+			nameProductLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+			
+			priceProductLabel.topAnchor.constraint(equalTo: nameProductLabel.bottomAnchor, constant: 10),
+			priceProductLabel.leadingAnchor.constraint(equalTo: nameProductLabel.leadingAnchor),
+			priceProductLabel.trailingAnchor.constraint(equalTo: nameProductLabel.trailingAnchor),
+			
+			addToCartButton.topAnchor.constraint(equalTo: priceProductLabel.bottomAnchor, constant: 20),
+			addToCartButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+			addToCartButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
 		])
 	}
 }

@@ -61,6 +61,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		
 		productVC.modalPresentationStyle = .fullScreen
 		present(productVC, animated: true)
 	}
