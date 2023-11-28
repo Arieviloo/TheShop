@@ -58,7 +58,7 @@ class ProductPresentView: UIView {
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
-		backgroundColor = UIColor.appBackgroundColor
+		backgroundColor = UIColor.green
 		configAddView()
 		configConstraints()
 	}
@@ -73,6 +73,10 @@ class ProductPresentView: UIView {
 		addSubview(nameProductLabel)
 		addSubview(priceProductLabel)
 		addSubview(addToCartButton)
+	}
+	
+	public func setConfigView(_ name: String) {
+		nameProductLabel.text = name
 	}
 	
 	@objc func tappedBackButton() {
