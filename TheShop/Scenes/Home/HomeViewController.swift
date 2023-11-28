@@ -32,7 +32,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.identifier, for: indexPath) as? HomeCollectionViewCell
-		print(textqul[indexPath.row])
 		cell?.nameLabel.text = textqul[indexPath.row]
 		return cell ?? UICollectionViewCell()
 	}
@@ -61,7 +60,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		
+		productVC.setProductView(textqul[indexPath.row])
 		productVC.modalPresentationStyle = .fullScreen
 		present(productVC, animated: true)
 	}
