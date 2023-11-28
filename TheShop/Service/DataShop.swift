@@ -15,16 +15,14 @@ class DataShop: NSObject {
 				}
 				guard let data else { return }
 				guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { return }
-				print(data)
 				
 				do {
 					let products: Products = try JSONDecoder().decode(Products.self, from: data)
-					print(products)
+					completion(.success(products))
 				} catch {
-					print("error -> \(error)")
+					completion(.failure(fatalError()))
 				}
 			}
-			
 		}.resume()
 	}
 }

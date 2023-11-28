@@ -4,23 +4,23 @@ class HomeCollectionViewCell: UICollectionViewCell {
 	
 	static let identifier: String = "HomeCollectionViewCell"
 	
-	lazy var borderView: UIView = {
+	lazy var imageProductView: UIImageView = {
 		$0.translatesAutoresizingMaskIntoConstraints = false
+//		$0.clipsToBounds = true
 		$0.layer.cornerRadius = 16
 		$0.layer.borderColor = UIColor.black.cgColor
 		$0.layer.backgroundColor = UIColor.white.cgColor
 		$0.layer.borderWidth = 2
-		
 		$0.layer.shadowOffset = CGSize(width: 3, height: 4)
-		$0.layer.shadowRadius = 0
+		$0.layer.shadowRadius = 1
 		$0.layer.shadowOpacity = 1
+		$0.contentMode = .scaleAspectFit
 		return $0
-	}(UIView())
+	}(UIImageView())
 	
 	lazy var nameLabel: UILabel = {
 		$0.translatesAutoresizingMaskIntoConstraints = false
-		$0.backgroundColor = .lightGray
-		$0.numberOfLines = 0
+		$0.numberOfLines = 3
 		return $0
 	}(UILabel())
 	
@@ -35,8 +35,8 @@ class HomeCollectionViewCell: UICollectionViewCell {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		
+		self.contentView.addSubview(imageProductView)
 		self.contentView.addSubview(nameLabel)
-		self.contentView.addSubview(borderView)
 		self.contentView.addSubview(priceLabel)
 		configConstraints()
 	}
@@ -45,20 +45,35 @@ class HomeCollectionViewCell: UICollectionViewCell {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	public func setConfigView(with product: Product) {
+		nameLabel.text = product.title
+		priceLabel.text = String(product.price ?? 0)
+		
+		guard let imageURL = product.image else { return }
+		guard let url = URL(string: imageURL) else { return }
+		URLSession.shared.dataTask(with: url) {[weak self] (data,_,_) in
+			if let data {
+				DispatchQueue.main.async {
+					self?.imageProductView.image = UIImage(data: data)
+				}
+			}
+		}.resume()
+	}
+	
 	private func configConstraints() {
 		NSLayoutConstraint.activate([
-			borderView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-			borderView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 2),
-			borderView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -2),
-			borderView.heightAnchor.constraint(equalToConstant: 180),
-			
-			nameLabel.topAnchor.constraint(equalTo: borderView.bottomAnchor, constant: 5),
-			nameLabel.leadingAnchor.constraint(equalTo: borderView.leadingAnchor, constant: 5),
-			nameLabel.trailingAnchor.constraint(equalTo: borderView.trailingAnchor, constant: -5),
+			imageProductView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+			imageProductView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 2),
+			imageProductView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -2),
+			imageProductView.heightAnchor.constraint(equalToConstant: 180),
+	
+			nameLabel.topAnchor.constraint(equalTo: imageProductView.bottomAnchor, constant: 5),
+			nameLabel.leadingAnchor.constraint(equalTo: imageProductView.leadingAnchor, constant: 5),
+			nameLabel.trailingAnchor.constraint(equalTo: imageProductView.trailingAnchor, constant: -5),
 			
 			priceLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5),
-			priceLabel.leadingAnchor.constraint(equalTo: borderView.leadingAnchor, constant: 5),
-			priceLabel.trailingAnchor.constraint(equalTo: borderView.trailingAnchor, constant: -5),
+			priceLabel.leadingAnchor.constraint(equalTo: imageProductView.leadingAnchor, constant: 5),
+			priceLabel.trailingAnchor.constraint(equalTo: imageProductView.trailingAnchor, constant: -5),
 			
 		])
 	}
