@@ -4,9 +4,8 @@ class HomeCollectionViewCell: UICollectionViewCell {
 	
 	static let identifier: String = "HomeCollectionViewCell"
 	
-	lazy var imageProductView: UIImageView = {
+	lazy var cardBorderView: UIImageView = {
 		$0.translatesAutoresizingMaskIntoConstraints = false
-//		$0.clipsToBounds = true
 		$0.layer.cornerRadius = 16
 		$0.layer.borderColor = UIColor.black.cgColor
 		$0.layer.backgroundColor = UIColor.white.cgColor
@@ -14,6 +13,13 @@ class HomeCollectionViewCell: UICollectionViewCell {
 		$0.layer.shadowOffset = CGSize(width: 3, height: 4)
 		$0.layer.shadowRadius = 1
 		$0.layer.shadowOpacity = 1
+		return $0
+	}(UIImageView())
+	
+	lazy var imageProductView: UIImageView = {
+		$0.translatesAutoresizingMaskIntoConstraints = false
+		$0.clipsToBounds = true
+		$0.layer.cornerRadius = 16
 		$0.contentMode = .scaleAspectFit
 		return $0
 	}(UIImageView())
@@ -28,14 +34,14 @@ class HomeCollectionViewCell: UICollectionViewCell {
 		$0.translatesAutoresizingMaskIntoConstraints = false
 		$0.backgroundColor = .lightGray
 		$0.numberOfLines = 0
-		$0.text = "R$ 0,00"
 		return $0
 	}(UILabel())
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		
-		self.contentView.addSubview(imageProductView)
+		self.contentView.addSubview(cardBorderView)
+		self.cardBorderView.addSubview(imageProductView)
 		self.contentView.addSubview(nameLabel)
 		self.contentView.addSubview(priceLabel)
 		configConstraints()
@@ -62,10 +68,15 @@ class HomeCollectionViewCell: UICollectionViewCell {
 	
 	private func configConstraints() {
 		NSLayoutConstraint.activate([
-			imageProductView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-			imageProductView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 2),
-			imageProductView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -2),
-			imageProductView.heightAnchor.constraint(equalToConstant: 180),
+			cardBorderView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+			cardBorderView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 2),
+			cardBorderView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -2),
+			cardBorderView.heightAnchor.constraint(equalToConstant: 180),
+			
+			imageProductView.topAnchor.constraint(equalTo: cardBorderView.topAnchor),
+			imageProductView.leadingAnchor.constraint(equalTo: cardBorderView.leadingAnchor),
+			imageProductView.trailingAnchor.constraint(equalTo: cardBorderView.trailingAnchor),
+			imageProductView.heightAnchor.constraint(equalTo: cardBorderView.heightAnchor),
 	
 			nameLabel.topAnchor.constraint(equalTo: imageProductView.bottomAnchor, constant: 5),
 			nameLabel.leadingAnchor.constraint(equalTo: imageProductView.leadingAnchor, constant: 5),
