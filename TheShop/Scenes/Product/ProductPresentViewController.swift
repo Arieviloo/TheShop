@@ -10,8 +10,8 @@ class ProductPresentViewController: UIViewController {
 		productView.delegate(delegate: self)
 	}
 	
-	public func setProductView(_ name: String) {
-		productView.setConfigView(name)
+	public func setProductView(_ product: Product) {
+		productView.setConfigView(product)
 	}
 }
 

@@ -17,12 +17,19 @@ class ProductPresentView: UIView {
 		$0.layer.borderColor = UIColor.black.cgColor
 		$0.layer.backgroundColor = UIColor.white.cgColor
 		$0.layer.borderWidth = 2
-		
 		$0.layer.shadowOffset = CGSize(width: 3, height: 4)
 		$0.layer.shadowRadius = 0
 		$0.layer.shadowOpacity = 1
 		return $0
 	}(UIView())
+	
+	lazy var imageProductView: UIImageView = {
+		$0.translatesAutoresizingMaskIntoConstraints = false
+		$0.clipsToBounds = true
+		$0.layer.cornerRadius = 16
+		$0.contentMode = .scaleAspectFit
+		return $0
+	}(UIImageView())
 	
 	lazy var backButton: UIButton = {
 		$0.translatesAutoresizingMaskIntoConstraints = false
@@ -69,14 +76,26 @@ class ProductPresentView: UIView {
 	
 	private func configAddView() {
 		addSubview(contentView)
+		contentView.addSubview(imageProductView)
 		contentView.addSubview(backButton)
 		addSubview(nameProductLabel)
 		addSubview(priceProductLabel)
 		addSubview(addToCartButton)
 	}
 	
-	public func setConfigView(_ name: String) {
-		nameProductLabel.text = name
+	public func setConfigView(_ product: Product) {
+		nameProductLabel.text = product.title
+		priceProductLabel.text = String(product.price ?? 0)
+		guard let imageUrlString = product.image else { return }
+		guard let imageUrl = URL(string: imageUrlString) else { return }
+	
+		URLSession.shared.dataTask(with: imageUrl){[weak self](data,_,_) in
+			if let data {
+				DispatchQueue.main.async {
+					self?.imageProductView.image = UIImage(data: data)
+				}
+			}
+		}.resume()
 	}
 	
 	@objc func tappedBackButton() {
@@ -89,6 +108,11 @@ class ProductPresentView: UIView {
 			contentView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
 			contentView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
 			contentView.heightAnchor.constraint(equalToConstant: 400),
+			
+			imageProductView.topAnchor.constraint(equalTo: contentView.topAnchor),
+			imageProductView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+			imageProductView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+			imageProductView.heightAnchor.constraint(equalTo: contentView.heightAnchor),
 			
 			backButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
 			backButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
