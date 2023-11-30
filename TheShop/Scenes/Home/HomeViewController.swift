@@ -49,8 +49,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		guard let nameProducts = products[indexPath.row].title else { return }
-		productVC.setProductView(nameProducts)
+		print(products[indexPath.row])
+		productVC.setProductView(products[indexPath.row])
 		productVC.modalPresentationStyle = .fullScreen
 		present(productVC, animated: true)
 	}
