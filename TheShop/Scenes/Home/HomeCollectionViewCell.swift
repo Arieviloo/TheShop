@@ -54,7 +54,6 @@ class HomeCollectionViewCell: UICollectionViewCell {
 	public func setConfigView(with product: Product) {
 		nameLabel.text = product.title
 		priceLabel.text = String(product.price ?? 0)
-		
 		guard let imageURL = product.image else { return }
 		guard let url = URL(string: imageURL) else { return }
 		URLSession.shared.dataTask(with: url) {[weak self] (data,_,_) in
@@ -64,6 +63,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
 				}
 			}
 		}.resume()
+		
 	}
 	
 	private func configConstraints() {
@@ -77,7 +77,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
 			imageProductView.leadingAnchor.constraint(equalTo: cardBorderView.leadingAnchor),
 			imageProductView.trailingAnchor.constraint(equalTo: cardBorderView.trailingAnchor),
 			imageProductView.heightAnchor.constraint(equalTo: cardBorderView.heightAnchor),
-	
+			
 			nameLabel.topAnchor.constraint(equalTo: imageProductView.bottomAnchor, constant: 5),
 			nameLabel.leadingAnchor.constraint(equalTo: imageProductView.leadingAnchor, constant: 5),
 			nameLabel.trailingAnchor.constraint(equalTo: imageProductView.trailingAnchor, constant: -5),
