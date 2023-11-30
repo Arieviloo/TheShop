@@ -88,7 +88,7 @@ class ProductPresentView: UIView {
 		priceProductLabel.text = String(product.price ?? 0)
 		guard let imageUrlString = product.image else { return }
 		guard let imageUrl = URL(string: imageUrlString) else { return }
-	
+		
 		URLSession.shared.dataTask(with: imageUrl){[weak self](data,_,_) in
 			if let data {
 				DispatchQueue.main.async {
