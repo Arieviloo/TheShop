@@ -34,8 +34,8 @@ class ProductPresentView: UIView {
 	lazy var backButton: UIButton = {
 		$0.translatesAutoresizingMaskIntoConstraints = false
 		$0.setImage(UIImage(systemName: "arrowshape.backward"), for: .normal)
-		$0.tintColor = UIColor.black
-		$0.backgroundColor = .green
+		$0.tintColor = UIColor.appBlackColor
+		$0.backgroundColor = UIColor.appGreenColor
 		$0.layer.borderWidth = 2
 		$0.layer.cornerRadius = 8
 		$0.addTarget(self, action: #selector(tappedBackButton), for: .touchUpInside)
@@ -44,14 +44,14 @@ class ProductPresentView: UIView {
 	
 	lazy var nameProductLabel: UILabel = {
 		$0.translatesAutoresizingMaskIntoConstraints = false
-		$0.text = "text"
+		$0.font = UIFont.systemFont(ofSize: 22, weight: .bold)
 		$0.numberOfLines = 0
 		return $0
 	}(UILabel())
 	
 	lazy var priceProductLabel: UILabel = {
 		$0.translatesAutoresizingMaskIntoConstraints = false
-		$0.text = "R$ 0,00"
+		$0.font = UIFont.systemFont(ofSize: 24)
 		$0.numberOfLines = 0
 		return $0
 	}(UILabel())
@@ -59,6 +59,12 @@ class ProductPresentView: UIView {
 	lazy var addToCartButton: UIButton = {
 		$0.translatesAutoresizingMaskIntoConstraints = false
 		$0.backgroundColor = UIColor.appGreenColor
+		$0.setTitleColor(UIColor.appPurpleColor, for: .normal)
+		$0.titleLabel?.font = UIFont(name: "Bungee-Regular", size: 20)
+		$0.clipsToBounds = true
+		$0.layer.cornerRadius = 10
+		$0.layer.borderWidth = 2
+		$0.layer.borderColor = UIColor.appBlackColor.cgColor
 		$0.setTitle("Add to cart", for: .normal)
 		return $0
 	}(UIButton(type: .system))
@@ -89,7 +95,7 @@ class ProductPresentView: UIView {
 	
 	public func setConfigView(_ product: Product) {
 		nameProductLabel.text = product.title
-		priceProductLabel.text = String(product.price ?? 0)
+		priceProductLabel.text = String(product.price ?? 0).currencyFormatting()
 		guard let imageUrlString = product.image else { return }
 		guard let imageUrl = URL(string: imageUrlString) else { return }
 		
@@ -131,9 +137,10 @@ class ProductPresentView: UIView {
 			priceProductLabel.leadingAnchor.constraint(equalTo: nameProductLabel.leadingAnchor),
 			priceProductLabel.trailingAnchor.constraint(equalTo: nameProductLabel.trailingAnchor),
 			
-			addToCartButton.topAnchor.constraint(equalTo: priceProductLabel.bottomAnchor, constant: 20),
-			addToCartButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-			addToCartButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+			addToCartButton.topAnchor.constraint(equalTo: priceProductLabel.bottomAnchor, constant: 30),
+			addToCartButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+			addToCartButton.widthAnchor.constraint(equalToConstant: 200),
+			addToCartButton.heightAnchor.constraint(equalToConstant: 50)
 		])
 	}
 }
