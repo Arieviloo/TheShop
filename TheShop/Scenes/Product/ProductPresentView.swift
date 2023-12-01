@@ -14,7 +14,7 @@ class ProductPresentView: UIView {
 	lazy var contentView: UIView = {
 		$0.translatesAutoresizingMaskIntoConstraints = false
 		$0.layer.cornerRadius = 16
-		$0.layer.borderColor = UIColor.black.cgColor
+		$0.layer.borderColor = UIColor.appBlackColor.cgColor
 		$0.layer.backgroundColor = UIColor.white.cgColor
 		$0.layer.borderWidth = 2
 		$0.layer.shadowOffset = CGSize(width: 3, height: 4)
@@ -58,20 +58,24 @@ class ProductPresentView: UIView {
 	
 	lazy var addToCartButton: UIButton = {
 		$0.translatesAutoresizingMaskIntoConstraints = false
-		$0.backgroundColor = .green
+		$0.backgroundColor = UIColor.appGreenColor
 		$0.setTitle("Add to cart", for: .normal)
 		return $0
 	}(UIButton(type: .system))
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
-		backgroundColor = UIColor.green
-		configAddView()
-		configConstraints()
+		commonInit()
 	}
-	
+
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+	
+	private func commonInit() {
+		backgroundColor = UIColor.appPurpleColor
+		configAddView()
+		configConstraints()
 	}
 	
 	private func configAddView() {
