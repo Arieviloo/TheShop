@@ -84,7 +84,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
 			
 			priceLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5),
 			priceLabel.leadingAnchor.constraint(equalTo: imageProductView.leadingAnchor, constant: 5),
-//			priceLabel.trailingAnchor.constraint(equalTo: imageProductView.trailingAnchor, constant: -5),
+			priceLabel.trailingAnchor.constraint(equalTo: imageProductView.trailingAnchor, constant: -5),
 			
 		])
 	}
