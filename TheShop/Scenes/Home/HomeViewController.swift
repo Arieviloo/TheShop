@@ -36,7 +36,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		print(products)
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.identifier, for: indexPath) as? HomeCollectionViewCell
 		let productCell = products[indexPath.row]
 		cell?.setConfigView(with: productCell)
@@ -49,7 +48,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		print(products[indexPath.row])
+		
 		productVC.setProductView(products[indexPath.row])
 		productVC.modalPresentationStyle = .fullScreen
 		present(productVC, animated: true)
