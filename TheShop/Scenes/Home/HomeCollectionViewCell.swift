@@ -26,13 +26,13 @@ class HomeCollectionViewCell: UICollectionViewCell {
 	
 	lazy var nameLabel: UILabel = {
 		$0.translatesAutoresizingMaskIntoConstraints = false
+		$0.font = UIFont.systemFont(ofSize: 18, weight: .bold)
 		$0.numberOfLines = 3
 		return $0
 	}(UILabel())
 	
 	lazy var priceLabel: UILabel = {
 		$0.translatesAutoresizingMaskIntoConstraints = false
-		$0.backgroundColor = .lightGray
 		$0.numberOfLines = 0
 		return $0
 	}(UILabel())
@@ -53,7 +53,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
 	
 	public func setConfigView(with product: Product) {
 		nameLabel.text = product.title
-		priceLabel.text = String(product.price ?? 0)
+		priceLabel.text = String(product.price ?? 0).currencyFormatting()
 		guard let imageURL = product.image else { return }
 		guard let url = URL(string: imageURL) else { return }
 		URLSession.shared.dataTask(with: url) {[weak self] (data,_,_) in
@@ -78,13 +78,13 @@ class HomeCollectionViewCell: UICollectionViewCell {
 			imageProductView.trailingAnchor.constraint(equalTo: cardBorderView.trailingAnchor),
 			imageProductView.heightAnchor.constraint(equalTo: cardBorderView.heightAnchor),
 			
-			nameLabel.topAnchor.constraint(equalTo: imageProductView.bottomAnchor, constant: 5),
+			nameLabel.topAnchor.constraint(equalTo: imageProductView.bottomAnchor, constant: 10),
 			nameLabel.leadingAnchor.constraint(equalTo: imageProductView.leadingAnchor, constant: 5),
 			nameLabel.trailingAnchor.constraint(equalTo: imageProductView.trailingAnchor, constant: -5),
 			
 			priceLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5),
 			priceLabel.leadingAnchor.constraint(equalTo: imageProductView.leadingAnchor, constant: 5),
-			priceLabel.trailingAnchor.constraint(equalTo: imageProductView.trailingAnchor, constant: -5),
+//			priceLabel.trailingAnchor.constraint(equalTo: imageProductView.trailingAnchor, constant: -5),
 			
 		])
 	}
