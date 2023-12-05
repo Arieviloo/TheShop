@@ -35,9 +35,12 @@ class ProductPresentView: UIView {
 		$0.translatesAutoresizingMaskIntoConstraints = false
 		$0.setImage(UIImage(systemName: "arrowshape.backward"), for: .normal)
 		$0.tintColor = UIColor.appBlackColor
-		$0.backgroundColor = UIColor.appGreenColor
+		$0.backgroundColor = UIColor.white
 		$0.layer.borderWidth = 2
 		$0.layer.cornerRadius = 8
+		$0.layer.shadowOffset = CGSize(width: 3, height: 4)
+		$0.layer.shadowRadius = 0
+		$0.layer.shadowOpacity = 1
 		$0.addTarget(self, action: #selector(tappedBackButton), for: .touchUpInside)
 		return $0
 	}(UIButton(type: .system))
@@ -126,8 +129,8 @@ class ProductPresentView: UIView {
 			
 			backButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
 			backButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
-			backButton.widthAnchor.constraint(equalToConstant: 40),
-			backButton.heightAnchor.constraint(equalToConstant: 40),
+			backButton.widthAnchor.constraint(equalToConstant: 50),
+			backButton.heightAnchor.constraint(equalToConstant: 30),
 			
 			nameProductLabel.topAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 20),
 			nameProductLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
@@ -138,8 +141,8 @@ class ProductPresentView: UIView {
 			priceProductLabel.trailingAnchor.constraint(equalTo: nameProductLabel.trailingAnchor),
 			
 			addToCartButton.topAnchor.constraint(equalTo: priceProductLabel.bottomAnchor, constant: 30),
-			addToCartButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-			addToCartButton.widthAnchor.constraint(equalToConstant: 200),
+			addToCartButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+			addToCartButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 			addToCartButton.heightAnchor.constraint(equalToConstant: 50)
 		])
 	}

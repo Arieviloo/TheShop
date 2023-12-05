@@ -26,7 +26,7 @@ class HeaderCollectionReusableView: UICollectionReusableView {
 			titleLabel.topAnchor.constraint(equalTo: topAnchor),
 			lineView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor)
 		])
-}
+	}
 	
 	override func layoutSubviews() {
 		super.layoutSubviews()
