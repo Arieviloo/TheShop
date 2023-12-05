@@ -64,7 +64,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 			for: indexPath) as? HeaderCollectionReusableView else {
 			return UICollectionReusableView()
 		}
-		header.viewWithTag(2)
+//		header.viewWithTag(1)
 //		header.configure()
 		header.titleHeader("titleHome")
 		
