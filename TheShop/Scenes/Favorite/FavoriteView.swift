@@ -8,7 +8,8 @@ class FavoriteView: UIView {
 		$0.translatesAutoresizingMaskIntoConstraints = false
 		$0.backgroundColor = .none
 		$0.setCollectionViewLayout(layout, animated: true)
-		$0.backgroundColor = .green
+		$0.register(HeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCollectionReusableView.identifier)
+		$0.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: HomeCollectionViewCell.identifier)
 		
 		return $0
 	}(UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout.init()))
@@ -23,6 +24,11 @@ class FavoriteView: UIView {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	public func delegateCollectionView(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource) {
+		self.productCollectionView.delegate = delegate
+		self.productCollectionView.dataSource = dataSource
+	}
+	
 	private func setupSubView() {
 		addSubview(productCollectionView)
 	}
@@ -30,8 +36,8 @@ class FavoriteView: UIView {
 	private func setupConstraints() {
 		NSLayoutConstraint.activate([
 			productCollectionView.topAnchor.constraint(equalTo: topAnchor),
-			productCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-			productCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+			productCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+			productCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
 			productCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
 		])
 	}

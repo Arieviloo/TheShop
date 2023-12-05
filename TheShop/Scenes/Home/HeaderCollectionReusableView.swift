@@ -6,7 +6,6 @@ class HeaderCollectionReusableView: UICollectionReusableView {
 	
 	lazy var titleLabel: UILabel = {
 		$0.translatesAutoresizingMaskIntoConstraints = false
-//		$0.text = String(localizedKey: "titleHome")
 		$0.font = UIFont(name: "Bungee-Regular", size: 40)
 		return $0
 	}(UILabel())
