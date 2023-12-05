@@ -4,21 +4,34 @@ class HeaderCollectionReusableView: UICollectionReusableView {
 	
 	static let identifier: String = "HeaderCollectionReusableView"
 	
-	private let titleLabel: UILabel = {
+	lazy var titleLabel: UILabel = {
 		$0.translatesAutoresizingMaskIntoConstraints = false
-		$0.text = String(localizedKey: "titleHome")
+//		$0.text = String(localizedKey: "titleHome")
 		$0.font = UIFont(name: "Bungee-Regular", size: 40)
 		return $0
 	}(UILabel())
 	
-	private let lineView: UIView = {
+	lazy var lineView: UIView = {
 		$0.translatesAutoresizingMaskIntoConstraints = false
 		$0.layer.borderWidth = 2
 		$0.layer.borderColor = UIColor.green.cgColor
 		return $0
 	}(UIView())
 	
-	public func configure() {
+	public func titleHeader(_ title: String) {
+		titleLabel.text = String(localizedKey: "\(title)")
+	}
+	
+	override init(frame: CGRect) {
+		super.init(frame: frame)
+		commonInit()
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
+	private func commonInit() {
 		addSubview(titleLabel)
 		addSubview(lineView)
 		
