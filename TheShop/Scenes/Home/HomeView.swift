@@ -1,7 +1,8 @@
 import UIKit
 
 class HomeView: UIView {
-		
+	
+	
 	lazy var productCollectionView: UICollectionView = {
 		let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
 		layout.scrollDirection = .vertical
@@ -18,8 +19,8 @@ class HomeView: UIView {
 		super.init(frame: frame)
 		configAddView()
 		configConstraints()
-		
 		backgroundColor = UIColor.appBackgroundColor
+		
 	}
 	
 	required init?(coder: NSCoder) {

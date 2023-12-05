@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E25E16322B1249D000D64F09 /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25E16312B1249D000D64F09 /* HeaderCollectionReusableView.swift */; };
+		E2886F122B1F6F2000FFE886 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2886F112B1F6F2000FFE886 /* FavoriteView.swift */; };
 		E2E3EAF82B0F968F00C70043 /* DataShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E3EAF72B0F968F00C70043 /* DataShop.swift */; };
 		E2E3EAFB2B0F98AC00C70043 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E3EAFA2B0F98AC00C70043 /* Products.swift */; };
 		E2E3EAFD2B0FBA1E00C70043 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E3EAFC2B0FBA1E00C70043 /* HomeCollectionViewCell.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		E25E16312B1249D000D64F09 /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		E2886F112B1F6F2000FFE886 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		E2E3EAF72B0F968F00C70043 /* DataShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataShop.swift; sourceTree = "<group>"; };
 		E2E3EAFA2B0F98AC00C70043 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		E2E3EAFC2B0FBA1E00C70043 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				E2EC8F5B2B0EB5E100A453DE /* FavoriteViewController.swift */,
+				E2886F112B1F6F2000FFE886 /* FavoriteView.swift */,
 			);
 			path = Favorite;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			files = (
 				E2E3EAFB2B0F98AC00C70043 /* Products.swift in Sources */,
 				E2E8359E2B15142000CDCAFC /* ProductPresentView.swift in Sources */,
+				E2886F122B1F6F2000FFE886 /* FavoriteView.swift in Sources */,
 				E25E16322B1249D000D64F09 /* HeaderCollectionReusableView.swift in Sources */,
 				E2E8359C2B15141400CDCAFC /* ProductPresentViewController.swift in Sources */,
 				E2EC8F4C2B0EACE700A453DE /* HomeView.swift in Sources */,

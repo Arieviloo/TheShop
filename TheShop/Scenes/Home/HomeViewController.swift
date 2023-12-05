@@ -6,6 +6,7 @@ class HomeViewController: UIViewController {
 	private let service = DataShop.shared
 	private let productVC = ProductPresentViewController()
 	private var products: Products = []
+	var headerColl = HeaderCollectionReusableView()
 	
 	override func loadView() {
 		homeView = HomeView()
@@ -27,6 +28,7 @@ class HomeViewController: UIViewController {
 		
 		homeView?.configDelegateCollection(delegate: self, dataSource: self)
 		navigationController?.isNavigationBarHidden = true
+		
 	}
 }
 
@@ -63,7 +65,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 			return UICollectionReusableView()
 		}
 		header.viewWithTag(2)
-		header.configure()
+//		header.configure()
+		header.titleHeader("titleHome")
 		
 		return header
 	}
